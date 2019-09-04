@@ -1,0 +1,44 @@
+version: '3'
+services:
+  timeapi:
+    container_name: timeapi
+    build:
+      context: api
+      dockerfile: Dockerfile.dev
+    environment:
+      DB_HOST: timedb
+    env_file:
+      - api/.env
+    ports:
+      - 8080:3000
+      - 9229:9229
+    command:
+      - run
+      - run:dev
+    volumes:
+      - ./api/src:/usr/app/src
+      - ./api/dist:/usr/app/dist
+  timeclient:
+    container_name: timeclient
+    build:
+      context: ./client
+      dockerfile: Dockerfile.dev
+    environment:
+      API_URL: "http://timeapi:8080/api"
+    ports:
+      - 80:3000
+      - 9228:9229
+    command:
+      - start
+    volumes:
+      - ./client/src:/usr/app/src
+      - ./client/public:/usr/app/public
+  timedb:
+    container_name: timedb
+    image: mongo:latest
+    ports:
+      - 27017:27017
+    volumes:
+      - timedb:/data/db
+volumes:
+  timedb: {}
