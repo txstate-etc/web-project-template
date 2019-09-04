@@ -13,4 +13,4 @@ Template for web based projects at Texas State University
       {"language": "typescriptreact", "autoFix": true}
     ]
 ```
-3. Open project.code-workspace with VScode instead of the folder.
+3. Open project.code-workspace with VSCode instead of the folder.
