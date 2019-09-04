@@ -1,0 +1,11 @@
+FROM node:12-alpine
+WORKDIR /usr/app
+
+COPY package.json .
+COPY src src
+COPY public public
+
+RUN npm install
+
+ENTRYPOINT [ "npm" ]
+CMD [ "start" ]
