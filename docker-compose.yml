@@ -40,8 +40,8 @@ services:
       - 27017:27017
     volumes:
       - timedb:/data/db
-  shibb-cas:
-    container_name: shibb-cas
+  cas-stub:
+    container_name: cas-stub
     image: registry.its.txstate.edu/cas-stub:base
     environment:
       NODE_ENV: development
