@@ -4,10 +4,10 @@ WORKDIR /usr/app
 
 COPY package.json ./
 
-RUN npm install
+RUN yarn install
 
 COPY tsconfig.json ./
-COPY src src
+COPY src ./src
 
 RUN tsc -p ./
 
@@ -15,10 +15,10 @@ FROM node:12-alpine
 
 WORKDIR /usr/app
 
-COPY --from=build package.json .
-COPY --from=build dist dist
+COPY --from=build package.json ./
+COPY --from=build dist ./dist
 
-RUN npm install --production
+RUN yarn install --production
 
-ENTRYPOINT [ "npm" ]
+ENTRYPOINT [ "yarn" ]
 CMD [ "start" ]

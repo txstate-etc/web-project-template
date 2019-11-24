@@ -2,10 +2,10 @@ FROM node:12-alpine
 WORKDIR /usr/app
 
 COPY package.json ./
-RUN npm install
+RUN yarn install
 
-COPY src src
-COPY public public
+COPY src ./src
+COPY public ./public
 COPY tsconfig.json ./
 
 ENTRYPOINT [ "npm" ]

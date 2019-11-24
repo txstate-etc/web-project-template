@@ -1,6 +1,6 @@
 {
-  "name": "transfer-course-eval",
-  "version": "1.0.0",
+  "name": "timeapi",
+  "version": "1.1.0",
   "description": "",
   "main": "./dist/index.js",
   "scripts": {
@@ -9,26 +9,27 @@
     "run:dev": "nodemon",
     "start": "node dist/index.js"
   },
-  "author": "",
+  "author": "Mobile Web Systems",
   "license": "MIT",
   "devDependencies": {
-    "@types/express": "^4.17.1",
-    "@typescript-eslint/eslint-plugin": "^2.1.0",
-    "@typescript-eslint/parser": "^2.1.0",
-    "eslint": "^6.3.0",
+    "@types/express": "^4.17.2",
+    "@types/node-fetch": "^2.5.4",
+    "@types/node": "^12.12.12",
+    "@typescript-eslint/eslint-plugin": "^2.8.0",
+    "@typescript-eslint/parser": "^2.8.0",
+    "eslint": "^6.7.0",
     "eslint-config-standard": "^14.1.0",
     "eslint-plugin-import": "^2.18.2",
     "eslint-plugin-node": "^9.2.0",
     "eslint-plugin-promise": "^4.2.1",
     "eslint-plugin-standard": "^4.0.1",
-    "nodemon": "^1.19.2",
-    "typescript": "3.6.2"
+    "nodemon": "^2.0.1",
+    "typescript": "3.7.2"
   },
   "dependencies": {
-    "apollo-server-express": "^2.9.3",
+    "apollo-server-express": "^2.9.12",
     "express": "^4.17.1",
-    "graphql": "^14.5.4",
-    "graphql-tools": "^4.0.5",
-    "txstate-node-utils": "^2.8.16"
+    "graphql": "^14.5.8",
+    "txstate-node-utils": "^2.8.17"
   }
 }

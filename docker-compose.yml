@@ -10,24 +10,24 @@ services:
     env_file:
       - api/.env
     ports:
-      - 8080:3000
-      - 9229:9229
+      - 127.0.0.1:9229:9229
     command:
       - run
       - run:dev
     volumes:
       - ./api/src:/usr/app/src
       - ./api/dist:/usr/app/dist
+    depends_on:
+      - timedb
   timeclient:
     container_name: timeclient
     build:
       context: ./client
       dockerfile: Dockerfile.dev
     environment:
-      API_URL: "http://timeapi:8080/api"
+      API_URL: "http://timeapi/api"
     ports:
-      - 80:3000
-      - 9228:9229
+      - 127.0.0.1:9228:9229
     command:
       - start
     volumes:
@@ -40,6 +40,16 @@ services:
       - 27017:27017
     volumes:
       - timedb:/data/db
+  nginx-proxy:
+    container_name: web-project-nginx
+    image: nginx:mainline-alpine
+    volumes:
+      - ./nginx.dev.conf:/etc/nginx/nginx.conf
+    ports:
+      - 80:80
+    depends_on:
+      - timeapi
+      - timeclient
   cas-stub:
     container_name: cas-stub
     image: registry.its.txstate.edu/cas-stub:base
