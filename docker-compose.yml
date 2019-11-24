@@ -37,7 +37,7 @@ services:
     container_name: timedb
     image: mongo:latest
     ports:
-      - 27017:27017
+      - 127.0.0.1:27017:27017
     volumes:
       - timedb:/data/db
   nginx-proxy:
