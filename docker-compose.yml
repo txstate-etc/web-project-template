@@ -24,8 +24,6 @@ services:
     build:
       context: ./client
       dockerfile: Dockerfile.dev
-    environment:
-      API_URL: "http://timeapi/api"
     ports:
       - 127.0.0.1:9228:9229
     command:
