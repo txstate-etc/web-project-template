@@ -13,7 +13,7 @@ const apolloServer = new ApolloServer({
   schema
 })
 
-apolloServer.applyMiddleware({ app, path: '/api' })
+apolloServer.applyMiddleware({ app, path: '/api/' })
 
 app.listen(3000, async () => {
   await db.connect()
